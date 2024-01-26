@@ -8,9 +8,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #131313;
+  /* background: #ebe8de; */
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
+  /* background: linear-gradient(145deg, #8f8f8f, #a3fff0); */
+  background: linear-gradient(145deg, #ff8900, #e67300);
 }
 .box {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 42px;
+  /* background: linear-gradient(145deg, #1e1e1e, #252525);
+  box-shadow: 17px 17px 40px #00689c, -17px -17px 40px #0098e4; */
+  background: linear-gradient(145deg, #ff8900, #e67300);
+  box-shadow: 17px 17px 40px #cf6800, -17px -17px 40px #ff8900;
+}
+
+.box:hover {
+  border-radius: 42px;
+  background: linear-gradient(145deg, #e67300, #ff8900);
+  box-shadow: 17px 17px 40px #cf6800, -17px -17px 40px #ff8900;
 }
