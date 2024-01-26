@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,5 +8,84 @@
   </head>
   <body>
     <div class="box"></div>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neumorphism Generator</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
+      }
+
+      #neumorphism-box {
+        width: 200px;
+        height: 200px;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        margin: 10px;
+        box-shadow: 10px 10px 20px rgba(163, 177, 198, 0.7),
+          -10px -10px 20px rgba(255, 255, 255, 0.7);
+        transition: box-shadow 0.3s ease;
+      }
+
+      #controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      input {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="neumorphism-box"></div>
+
+    <div id="controls">
+      <label for="radius">Border Radius:</label>
+      <input type="range" id="radius" min="0" max="50" value="20" />
+
+      <label for="blur">Blur:</label>
+      <input type="range" id="blur" min="0" max="50" value="20" />
+
+      <label for="distance">Distance:</label>
+      <input type="range" id="distance" min="0" max="50" value="10" />
+
+      <label for="color">Color:</label>
+      <input type="color" id="color" value="#f0f0f0" />
+    </div>
+
+    <script>
+      const box = document.getElementById("neumorphism-box");
+      const radiusInput = document.getElementById("radius");
+      const blurInput = document.getElementById("blur");
+      const distanceInput = document.getElementById("distance");
+      const colorInput = document.getElementById("color");
+
+      function updateBox() {
+        const radius = radiusInput.value + "px";
+        const blur = blurInput.value + "px";
+        const distance = distanceInput.value + "px";
+        const color = colorInput.value;
+
+        box.style.borderRadius = radius;
+        box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color}`;
+      }
+
+      radiusInput.addEventListener("input", updateBox);
+      blurInput.addEventListener("input", updateBox);
+      distanceInput.addEventListener("input", updateBox);
+      colorInput.addEventListener("input", updateBox);
+    </script>
   </body>
 </html>
