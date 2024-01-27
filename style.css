@@ -61,10 +61,50 @@ input {
 }
 
 input#color {
-  width: 100px;
+  width: 50px;
   height: 50px;
+  border-radius: 50%;
   border: none;
   outline: none;
   cursor: pointer;
   background-color: transparent;
+}
+
+pre {
+  color: rgb(197, 200, 198);
+  background: rgb(29, 31, 33);
+  text-shadow: rgba(0, 0, 0, 0.3) 0px 1px;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  text-align: left;
+  white-space: pre;
+
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+  margin: 0.5em 0px;
+  overflow: auto;
+  direction: ltr;
+  border-radius: 0.3em;
+  padding: 1em;
+}
+
+code {
+  color: rgb(197, 200, 198);
+  text-shadow: rgba(0, 0, 0, 0.3) 0px 1px;
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+  direction: ltr;
+  font-size: 12px;
+}
+
+.token {
+  color: rgb(150, 203, 254);
+}
+
+.values {
+  color: rgb(197, 200, 198);
 }
