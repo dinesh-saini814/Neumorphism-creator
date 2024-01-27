@@ -21,7 +21,12 @@ function updateBox() {
 
 radiusInput.addEventListener("input", updateBox);
 blurInput.addEventListener("input", updateBox);
-distanceInput.addEventListener("input", updateBox);
+distanceInput.addEventListener("input", function () {
+  // Set the blur input value to be double the distance input value
+  blurInput.value = distanceInput.value * 2;
+  // Trigger the updateBox function to reflect the changes
+  updateBox();
+});
 colorInput.addEventListener("input", updateBox);
 intensityInput.addEventListener("input", updateBox);
 
