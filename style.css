@@ -60,5 +60,11 @@ input {
   box-shadow: 7px 7px 15px #989898, -7px -7px 15px #ffffff;
 }
 
-input:focus {
+input#color {
+  width: 100px;
+  height: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
 }
