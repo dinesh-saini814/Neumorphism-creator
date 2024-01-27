@@ -5,7 +5,7 @@ const distanceInput = document.getElementById("distance");
 const colorInput = document.getElementById("color");
 
 function updateBox() {
-  const radius = radiusInput.value + "%";
+  const radius = radiusInput.value + "px";
   const blur = blurInput.value + "px";
   const distance = distanceInput.value + "px";
   const color = colorInput.value;
