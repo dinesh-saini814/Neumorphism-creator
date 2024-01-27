@@ -11,22 +11,28 @@ body {
   /* background: #ebe8de; */
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
-  /* background: linear-gradient(145deg, #8f8f8f, #a3fff0); */
-  background: linear-gradient(145deg, #ff8900, #e67300);
-}
-.box {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border-radius: 42px;
+  background: linear-gradient(145deg, #777777, #a3fff0);
   /* background: linear-gradient(145deg, #1e1e1e, #252525);
   box-shadow: 17px 17px 40px #00689c, -17px -17px 40px #0098e4; */
-  background: linear-gradient(145deg, #ff8900, #e67300);
-  box-shadow: 17px 17px 40px #cf6800, -17px -17px 40px #ff8900;
 }
 
-.box:hover {
-  border-radius: 42px;
-  background: linear-gradient(145deg, #e67300, #ff8900);
-  box-shadow: 17px 17px 40px #cf6800, -17px -17px 40px #ff8900;
+#neumorphism-box {
+  width: 200px;
+  height: 200px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  margin: 10px;
+  box-shadow: 10px 10px 20px rgba(163, 177, 198, 0.7),
+    -10px -10px 20px rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.3s ease;
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin: 5px;
 }
