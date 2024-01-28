@@ -1,0 +1,327 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neumorphism Generator</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
+      }
+
+      #neumorphism-box {
+        width: 200px;
+        height: 200px;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        margin: 10px;
+        box-shadow: 10px 10px 20px rgba(163, 177, 198, 0.7),
+          -10px -10px 20px rgba(255, 255, 255, 0.7);
+        transition: box-shadow 0.3s ease;
+      }
+
+      #controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 20px;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 8px;
+        font-size: 16px;
+      }
+
+      #code-box {
+        margin-top: 20px;
+        background-color: #e0e0e0;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="neumorphism-box"></div>
+
+    <div id="controls">
+      <button id="sameButton">Same Color</button>
+      <button id="gradient1Button">Gradient 1</button>
+      <button id="gradient2Button">Gradient 2</button>
+      <button id="insetButton">Inset</button>
+    </div>
+
+    <div id="code-box"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const box = document.getElementById("neumorphism-box");
+        const codeBox = document.getElementById("code-box");
+
+        const generateRandomValue = (min, max) =>
+          Math.floor(Math.random() * (max - min + 1) + min);
+
+        const getRandomColor = () => {
+          const letters = "0123456789ABCDEF";
+          let color = "#";
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        };
+
+        document
+          .getElementById("sameButton")
+          .addEventListener("click", function () {
+            const color = "#e0e0e0";
+            box.style.background = color;
+
+            // Update the code box
+            const cssCode = `#neumorphism-box {
+  background: ${color};
+}`;
+            codeBox.textContent = cssCode;
+          });
+
+        document
+          .getElementById("gradient1Button")
+          .addEventListener("click", function () {
+            box.style.background = "linear-gradient(145deg, #cacaca, #f0f0f0)";
+
+            // Update the code box
+            const cssCode = `#neumorphism-box {
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+}`;
+            codeBox.textContent = cssCode;
+          });
+
+        document
+          .getElementById("gradient2Button")
+          .addEventListener("click", function () {
+            box.style.background = "linear-gradient(145deg, #f0f0f0, #cacaca)";
+
+            // Update the code box
+            const cssCode = `#neumorphism-box {
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+}`;
+            codeBox.textContent = cssCode;
+          });
+
+        document
+          .getElementById("insetButton")
+          .addEventListener("click", function () {
+            box.style.boxShadow = `inset ${distance} ${distance} ${blur} ${color}, inset -${distance} -${distance} ${blur} ${color}`;
+
+            // Update the code box
+            const cssCode = `#neumorphism-box {
+  box-shadow: inset ${distance} ${distance} ${blur} ${color}, inset -${distance} -${distance} ${blur} ${color};
+}`;
+            codeBox.textContent = cssCode;
+          });
+      });
+    </script>
+  </body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neumorphism Generator</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      #neumorphism-box {
+        width: 200px;
+        height: 200px;
+        background-color: #f0f0f0;
+        margin: 10px;
+        background: #e0e0e0;
+        box-shadow: 17px 17px 29px #d8d8d8, -17px -17px 29px #d8d8d8;
+        transition: box-shadow 0.3s ease;
+      }
+
+      #controls {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      button {
+        margin: 10px;
+        padding: 8px;
+        font-size: 16px;
+      }
+
+      #code-box {
+        margin-top: 20px;
+        background-color: #e0e0e0;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        white-space: pre-wrap;
+        margin-right: 20px;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="hello" id="neumorphism-box"></div>
+
+    <div id="controls">
+      <input type="radio" id="sameColor" name="style" value="sameColor" />
+      <label for="sameColor">Same Color</label><br />
+      <input type="radio" id="gradient1" name="style" value="gradient1" />
+      <label for="gradient1">Gradient 1</label><br />
+      <input type="radio" id="gradient2" name="style" value="gradient2" />
+      <label for="gradient2">Gradient 2</label><br />
+      <input type="radio" id="inset" name="style" value="inset" />
+      <label for="inset">Inset</label><br />
+      <button onclick="generateNeumorphism()">Generate</button>
+    </div>
+
+    <div id="code-box"></div>
+
+    <script>
+      function generateRandomValue(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+
+      function generateNeumorphism() {
+        const box = document.querySelector(".hello");
+        const codeBox = document.getElementById("code-box");
+
+        var simpleoutput = document.getElementById("sameColor").checked;
+        var gradient1output = document.getElementById("gradient1").checked;
+        var gradient2output = document.getElementById("gradient2").checked;
+        var insetoutput = document.getElementById("inset").checked;
+
+        const radius = generateRandomValue(0, 100) + "px";
+        const blur = generateRandomValue(10, 50) + "px";
+        const distance = generateRandomValue(5, 15) + "px";
+        const intensity = generateRandomValue(10, 50) + "";
+        const color1 = generateRandomInterpolatedColor();
+        const color2 = generateRandomInterpolatedColor();
+
+        if (simpleoutput == true) {
+          const colors = "#e0e0e0";
+          box.style.background = colors;
+          box.style.boxShadow = `${distance} ${distance} ${blur} ${color1}, -${distance} -${distance} ${blur} ${color2}`;
+
+          // Update the code box
+          const cssCode = `background: ${colors};
+box-shadow: ${distance} ${distance} ${blur} ${color1},
+      	-${distance} -${distance} ${blur} ${color2}${intensity};
+      					`;
+          codeBox.textContent = cssCode;
+        } else if (gradient1output == true) {
+          box.style.background = "linear-gradient(145deg, #cacaca, #f0f0f0)";
+          box.style.boxShadow = `${distance} ${distance} ${blur} ${color1}, -${distance} -${distance} ${blur} ${color2}`;
+
+          // Update the code box
+          const cssCode = `background: linear-gradient(145deg, #cacaca, #f0f0f0);
+boxShadow: ${distance} ${distance} ${blur} ${color1}, -${distance} -${distance} ${blur} ${color2} ${intensity};`;
+          codeBox.textContent = cssCode;
+        } else if (gradient2output == true) {
+          box.style.background = "linear-gradient(145deg, #f0f0f0, #cacaca)";
+          box.style.boxShadow = `${distance} ${distance} ${blur} ${color1}, -${distance} -${distance} ${blur} ${color2}`;
+
+          // Update the code box
+          const cssCode = `background: linear-gradient(145deg, #f0f0f0, #cacaca);
+boxShadow: ${distance} ${distance} ${blur} ${color1}, 
+		  -${distance} -${distance} ${blur} ${color2} ${intensity};`;
+          codeBox.textContent = cssCode;
+        } else if (insetoutput == true) {
+          box.style.boxShadow = `inset ${distance} ${distance} ${blur} ${color1}, inset -${distance} -${distance} ${blur} ${color2}`;
+
+          // Update the code box
+          const cssCode = `box-shadow: inset ${distance} ${distance} ${blur} ${color1}, 
+					inset -${distance} -${distance} ${blur} ${color2};
+      					}`;
+          codeBox.textContent = cssCode;
+        } else {
+          // box.style.borderRadius = radius;
+          box.style.boxShadow = `${distance} ${distance} ${blur} ${color1}, -${distance} -${distance} ${blur} ${color2} ${intensity}`;
+
+          // Update the code box
+          const cssCode = `border-radius: ${radius};
+      box-shadow: ${distance} ${distance} ${blur} ${color1},
+      	   -${distance} -${distance} ${blur} ${color2};
+                       `;
+          codeBox.textContent = cssCode;
+        }
+      }
+
+      // function getRandomColor() {
+      //   const letters = "5670DEF12C89A34B";
+      //   let color = "#";
+      //   for (let i = 0; i < 6; i++) {
+      //     color += letters[Math.floor(Math.random() * 16)];
+      //   }
+      //   return color;
+      // }
+
+      function interpolateColor(color1, color2, factor) {
+        let result = color1
+          .slice(1)
+          .match(/.{2}/g)
+          .map((hex) => parseInt(hex, 16))
+          .map((val, i) =>
+            Math.floor(
+              val +
+                factor * (parseInt(color2.slice(1).match(/.{2}/g)[i], 16) - val)
+            )
+          )
+          .map((val) => val.toString(16).padStart(2, "0"))
+          .join("");
+        return "#" + result;
+      }
+
+      // Function to generate a random factor between 0.01 and 0.6
+      function generateRandomFactor() {
+        return Math.random() * (0.6 - 0.01) + 0.01;
+      }
+      function generateRandomColor() {
+        const minValue = parseInt("dedede", 16);
+        const maxValue = parseInt("5a5a5a", 16);
+        const randomColorValue =
+          Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+        return "#" + randomColorValue.toString(16).padStart(6, "0");
+      }
+      function generateRandomInterpolatedColor() {
+        const color1 = interpolateColor(
+          "#dedede",
+          "#5a5a5a",
+          generateRandomFactor()
+        );
+        const color2 = interpolateColor(
+          "#dedede",
+          "#5a5a5a",
+          generateRandomFactor()
+        );
+        const randomFactor = generateRandomFactor();
+        return interpolateColor(color1, color2, randomFactor);
+      }
+    </script>
+  </body>
+</html>

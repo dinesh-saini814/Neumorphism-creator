@@ -14,6 +14,7 @@ function updateBox() {
 
   // Map the intensity value to a color value
   const color = interpolateColor("#dedede", "#5a5a5a", intensity);
+  box.style.color = Boxcolor;
   box.style.background = Boxcolor;
   box.style.borderRadius = radius;
   box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color}`;
@@ -30,21 +31,6 @@ distanceInput.addEventListener("input", function () {
   updateBox();
 });
 
-// Function to interpolate between two colors
-function interpolateColor(color1, color2, factor) {
-  let result = color1
-    .slice(1)
-    .match(/.{2}/g)
-    .map((hex) => parseInt(hex, 16))
-    .map((val, i) =>
-      Math.floor(
-        val + factor * (parseInt(color2.slice(1).match(/.{2}/g)[i], 16) - val)
-      )
-    )
-    .map((val) => val.toString(16).padStart(2, "0"))
-    .join("");
-  return "#" + result;
-}
 function updateCode() {
   const radius = radiusInput.value + "px";
   const blur = blurInput.value + "px";
@@ -64,3 +50,19 @@ radiusInput.addEventListener("input", updateCode);
 blurInput.addEventListener("input", updateCode);
 distanceInput.addEventListener("input", updateCode);
 intensityInput.addEventListener("input", updateCode);
+
+// Function to interpolate between two colors
+function interpolateColor(color1, color2, factor) {
+  let result = color1
+    .slice(1)
+    .match(/.{2}/g)
+    .map((hex) => parseInt(hex, 16))
+    .map((val, i) =>
+      Math.floor(
+        val + factor * (parseInt(color2.slice(1).match(/.{2}/g)[i], 16) - val)
+      )
+    )
+    .map((val) => val.toString(16).padStart(2, "0"))
+    .join("");
+  return "#" + result;
+}

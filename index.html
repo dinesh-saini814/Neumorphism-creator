@@ -24,6 +24,44 @@
       <div id="neumorphism-box"></div>
 
       <div id="controls">
+        <div class="type-selector">
+          <input
+            class="selector"
+            type="radio"
+            id="sameColor"
+            name="style"
+            value="sameColor"
+          />
+          <label class="rectangle-button" for="sameColor">default</label>
+
+          <input
+            class="selector"
+            type="radio"
+            id="gradient1"
+            name="style"
+            value="gradient1"
+          />
+          <label class="rectangle-button" for="gradient1">Gradient</label>
+
+          <input
+            class="selector"
+            type="radio"
+            id="gradient2"
+            name="style"
+            value="gradient2"
+          />
+          <label class="rectangle-button" for="gradient2">Gradient</label>
+
+          <input
+            class="selector"
+            type="radio"
+            id="inset"
+            name="style"
+            value="inset"
+          />
+          <label class="rectangle-button" for="inset">Inset</label>
+        </div>
+
         <label for="radius">Border Radius:</label>
         <input type="range" id="radius" min="0" max="114" value="24" />
 
@@ -45,7 +83,7 @@
         />
 
         <label for="color">Color:</label>
-        <input type="color" id="color" value="#bebebe" />
+        <input class="colourbox" type="color" id="color" value="#e0e0e0" />
 
         <pre><code><span class="token">border-radius</span><span class="token values">:</span> 98px<span class="token values">;</span>
 <span class="token">background</span><span class="token values">:</span> #e0e0e0<span class="token values">;</span>
