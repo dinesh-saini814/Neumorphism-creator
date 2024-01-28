@@ -44,14 +44,15 @@ function updateBox() {
       box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color1}`;
       break;
     case "inset":
+      box.style.background = Boxcolor;
+      box.style.borderRadius = radius;
       box.style.boxShadow = `inset ${distance} ${distance} ${blur} ${color}, inset -${distance} -${distance} ${blur} ${color1}`;
       break;
     default:
       box.style.background = Boxcolor;
+      box.style.borderRadius = radius;
+      box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color1}`;
   }
-
-  box.style.borderRadius = radius;
-  box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color1}`;
 
   // Update the code box
   const cssCode = `#neumorphism-box {
@@ -124,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
         clickedButton = "gradient1";
       } else if (radioButton.value == "gradient2") {
         clickedButton = "gradient2";
-      } else if (radioButton.value == "inset") {
+      } else if (radioButton.value == "inset0") {
         clickedButton = "inset";
       }
     });
