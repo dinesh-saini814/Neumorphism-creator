@@ -114,24 +114,6 @@ code {
   color: rgb(197, 200, 198);
 }
 
-/* .typelecector {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.selector {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  margin: 10px;
-  border: none;
-  outline: none;
-  padding: 10px;
-  cursor: pointer;
-  box-shadow: 7px 7px 15px #989898, -7px -7px 15px #ffffff;
-} */
-
 .type-selector {
   display: flex;
   gap: 10px;

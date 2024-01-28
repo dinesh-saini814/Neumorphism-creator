@@ -322,6 +322,23 @@ boxShadow: ${distance} ${distance} ${blur} ${color1},
         const randomFactor = generateRandomFactor();
         return interpolateColor(color1, color2, randomFactor);
       }
+
+      function updateBox() {
+        // Map the intensity value to a color value
+        const color = interpolateColor("#dedede", "#5a5a5a", intensity);
+        const color1 = interpolateColor("#ffffff", "#e2e2e2", intensity2);
+
+        // box.style.color = Boxcolor;
+        box.style.background = Boxcolor;
+        box.style.borderRadius = radius;
+        box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color1}`;
+      }
+
+      radiusInput.addEventListener("input", updateBox);
+      blurInput.addEventListener("input", updateBox);
+      colorInput.addEventListener("input", updateBox);
+      intensityInput.addEventListener("input", updateBox);
+      intensityinput2.addEventListener("input", updateBox);
     </script>
   </body>
 </html>

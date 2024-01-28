@@ -6,6 +6,13 @@ const colorInput = document.getElementById("color");
 const intensityInput = document.getElementById("intensity");
 const intensityinput2 = document.querySelector(".intensity2");
 
+var simpleoutput = document.getElementById("sameColor").checked;
+var gradient1output = document.getElementById("gradient1").checked;
+var gradient2output = document.getElementById("gradient2").checked;
+var insetoutput = document.getElementById("inset").checked;
+
+let clickedButton = "";
+
 function updateBox() {
   const radius = radiusInput.value + "px";
   const blur = blurInput.value + "px";
@@ -18,10 +25,41 @@ function updateBox() {
   const color = interpolateColor("#dedede", "#5a5a5a", intensity);
   const color1 = interpolateColor("#ffffff", "#e2e2e2", intensity2);
 
-  // box.style.color = Boxcolor;
-  box.style.background = Boxcolor;
+  const style = document.querySelector('input[name="style"]:checked').value;
+
+  switch (clickedButton) {
+    case "sameColor":
+      box.style.background = Boxcolor;
+      box.style.borderRadius = radius;
+      box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color1}`;
+      break;
+    case "gradient1":
+      box.style.background = "linear-gradient(145deg, #cacaca, #f0f0f0)";
+      box.style.borderRadius = radius;
+      box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color1}`;
+      break;
+    case "gradient2":
+      box.style.background = "linear-gradient(145deg, #f0f0f0, #cacaca)";
+      box.style.borderRadius = radius;
+      box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color1}`;
+      break;
+    case "inset":
+      box.style.boxShadow = `inset ${distance} ${distance} ${blur} ${color}, inset -${distance} -${distance} ${blur} ${color1}`;
+      break;
+    default:
+      box.style.background = Boxcolor;
+  }
+
   box.style.borderRadius = radius;
   box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color1}`;
+
+  // Update the code box
+  const cssCode = `#neumorphism-box {
+    background: ${box.style.background};
+    border-radius: ${radius};
+    box-shadow: ${box.style.boxShadow};
+  }`;
+  codeBox.textContent = cssCode;
 }
 
 radiusInput.addEventListener("input", updateBox);
@@ -67,10 +105,28 @@ function interpolateColor(color1, color2, factor) {
     .map((hex) => parseInt(hex, 16))
     .map((val, i) =>
       Math.floor(
-        val + factor * (parseInt(color2.slice(1).match(/.{2}/g)[i], 32) - val)
+        val + factor * (parseInt(color2.slice(1).match(/.{2}/g)[i], 16) - val)
       )
     )
     .map((val) => val.toString(16).padStart(2, "0"))
     .join("");
   return "#" + result;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const radioButtons = document.querySelectorAll(".selector");
+
+  radioButtons.forEach(function (radioButton) {
+    radioButton.addEventListener("click", function () {
+      if (radioButton.value == "simple") {
+        clickedButton = "simple";
+      } else if (radioButton.value == "gradient1") {
+        clickedButton = "gradient1";
+      } else if (radioButton.value == "gradient2") {
+        clickedButton = "gradient2";
+      } else if (radioButton.value == "inset") {
+        clickedButton = "inset";
+      }
+    });
+  });
+});
