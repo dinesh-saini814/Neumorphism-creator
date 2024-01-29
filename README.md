@@ -29,8 +29,8 @@ Contributions are welcome! If you have any ideas, suggestions, or bug reports, p
 
 | Design 1                                                  | Design 2                                                  | Design 3                                                  |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| <img src="/assets/preview1.png" width="300" height="200"> | <img src="/assets/preview2.png" width="300" height="200"> | <img src="/assets/preview3.png" width="300" height="200"> |
+| <img src="/assets/preview1.png" width="350" height="200"> | <img src="/assets/preview2.png" width="350" height="200"> | <img src="/assets/preview3.png" width="350" height="200"> |
 
 | Design 4                                                  | Design 5                                                  |
 | --------------------------------------------------------- | --------------------------------------------------------- |
-| <img src="/assets/preview4.png" width="300" height="200"> | <img src="/assets/preview5.png" width="300" height="200"> |
+| <img src="/assets/preview4.png" width="350" height="200"> | <img src="/assets/preview5.png" width="350" height="200"> |
