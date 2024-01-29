@@ -46,19 +46,18 @@ function updateBox() {
       box.style.borderRadius = radius;
       box.style.boxShadow = `inset ${distance} ${distance} ${blur} ${color}, inset -${distance} -${distance} ${blur} ${color1}`;
       break;
+    case "insetreverse":
+      box.style.background = Boxcolor;
+      box.style.borderRadius = radius;
+      box.style.boxShadow = `inset ${distance} ${distance} ${blur} ${color1}, inset -${distance} -${distance} ${blur} ${color}`;
+      break;
     default:
       box.style.background = Boxcolor;
       box.style.borderRadius = radius;
       box.style.boxShadow = ` ${distance} ${distance} ${blur} ${color}, -${distance} -${distance} ${blur} ${color1}`;
   }
 
-  // Update the code box
-  const cssCode = `#neumorphism-box {
-    background: ;
-    border-radius: ${radius};
-    box-shadow: ${box.style.boxShadow};
-  }`;
-  codeBox.textContent = cssCode;
+  updateCode();
 }
 
 radiusInput.addEventListener("input", updateBox);
@@ -82,11 +81,19 @@ function updateCode() {
   const color = interpolateColor("#dedede", "#5a5a5a", intensity);
   const color1 = interpolateColor("#e2e2e2", "#ffffff", intensity2);
 
-  const codeElement = document.querySelector("pre code");
-  codeElement.innerHTML = `<span class="token">border-radius</span><span class="token values">:</span> ${radius}<span class="token values">;</span>
-<span class="token">background</span><span class="token values">:</span> ${box.style.background}<span class="token values">;</span>
-<span class="token">box-shadow</span><span class="token values">:</span>  ${distance} ${distance} ${blur} ${color}<span class="token values">,</span>
-            -${distance} -${distance} ${blur} ${color1}<span class="token values">;</span>`;
+  if (clickedButton == "inset" || clickedButton == "insetreverse") {
+    const codeElement = document.querySelector("pre code");
+    codeElement.innerHTML = `<span class="token">border-radius</span><span class="token values">:</span> ${radius}<span class="token values">;</span>
+  <span class="token">background</span><span class="token values">:</span> ${box.style.background}<span class="token values">;</span>
+  <span class="token">box-shadow</span><span class="token values">:</span> inset ${distance} ${distance} ${blur} ${color}<span class="token values">,</span>
+               inset -${distance} -${distance} ${blur} ${color1}<span class="token values">;</span>`;
+  } else {
+    const codeElement = document.querySelector("pre code");
+    codeElement.innerHTML = `<span class="token">border-radius</span><span class="token values">:</span> ${radius}<span class="token values">;</span>
+    <span class="token">background</span><span class="token values">:</span> ${box.style.background}<span class="token values">;</span>
+    <span class="token">box-shadow</span><span class="token values">:</span>  ${distance} ${distance} ${blur} ${color}<span class="token values">,</span>
+                -${distance} -${distance} ${blur} ${color1}<span class="token values">;</span>`;
+  }
 }
 
 // Call updateCode whenever any input changes
@@ -95,6 +102,7 @@ blurInput.addEventListener("input", updateCode);
 distanceInput.addEventListener("input", updateCode);
 intensityInput.addEventListener("input", updateCode);
 intensityinput2.addEventListener("input", updateCode);
+colorInput.addEventListener("input", updateCode);
 
 // Function to interpolate between two colors
 function interpolateColor(color1, color2, factor) {
@@ -125,6 +133,8 @@ document.addEventListener("DOMContentLoaded", function () {
         clickedButton = "gradient2";
       } else if (radioButton.value == "inset0") {
         clickedButton = "inset";
+      } else if (radioButton.value == "inset1") {
+        clickedButton = "insetreverse";
       }
     });
   });

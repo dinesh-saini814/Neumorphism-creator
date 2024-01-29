@@ -9,13 +9,13 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Poppins", sans-serif;
-  min-height: 100vh;
+  max-height: 100vh;
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 .container {
-  width: 80%;
+  width: 60%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -32,13 +32,14 @@ body {
   margin: 10px;
   background: #e0e0e0;
   box-shadow: 7px 7px 15px #989898, -7px -7px 15px #ffffff;
-  margin-right: 200px;
+  margin-right: 100px;
 }
 
 #controls {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 450px;
+  height: 100vh;
   justify-content: space-around;
   border-radius: 24px;
   background: #e0e0e0;
@@ -50,22 +51,20 @@ body {
 #blur,
 #distance,
 #intensity {
-  margin: 10px;
-  /* width: 200px; */
-  height: 30px;
+  height: 10px;
   border-radius: 10px;
-  border: 2px solid #000000;
+  border: 1px solid #000000;
   outline: none;
-  /* padding: 10px; */
+  padding: 0px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   transition: box-shadow 0.3s ease;
   box-shadow: 7px 7px 15px #989898, -7px -7px 15px #ffffff;
 }
 
 .colourbox {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: none;
   outline: none;
