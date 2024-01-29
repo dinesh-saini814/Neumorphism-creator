@@ -33,4 +33,4 @@ Contributions are welcome! If you have any ideas, suggestions, or bug reports, p
 
 | Design 4                                                  | Design 5                                                  |
 | --------------------------------------------------------- | --------------------------------------------------------- |
-| <img src="/assets/preview4.png" width="350" height="200"> | <img src="/assets/preview5.png" width="350" height="200"> |
+| <img src="/assets/preview4.png" width="300" height="200"> | <img src="/assets/preview5.png" width="300" height="200"> |
