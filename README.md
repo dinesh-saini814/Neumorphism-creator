@@ -1,7 +1,5 @@
 # Neumorphism-creator
 
-# Neumorphism Creator
-
 This project allows you to create 5 different types of Neumorphism designs.
 
 ## How to Use
@@ -18,8 +16,7 @@ This project allows you to create 5 different types of Neumorphism designs.
 To install and run the Neumorphism Creator, follow these steps:
 
 1. Clone the repository.
-2. Install the required dependencies by running `npm install`.
-3. Start the application by running `npm start`.
+2. Start the application in any browser.
 
 ## Contributing
 
